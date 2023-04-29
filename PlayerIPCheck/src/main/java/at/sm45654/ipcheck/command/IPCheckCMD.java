@@ -25,17 +25,19 @@ public class IPCheckCMD implements CommandExecutor {
         }
 
         if (!Bukkit.getOnlinePlayers().contains(Bukkit.getPlayer(args[0]))) {
-            p.sendMessage(PlayerIPCheck.prefix + ColorUtil.RED + "Player "  + ColorUtil.ORANGE + args[0] + ColorUtil.RED + " does not exist or is not online!");
+            p.sendMessage(PlayerIPCheck.prefix + ColorUtil.RED + "Player " + ColorUtil.ORANGE + args[0] + ColorUtil.RED + " does not exist or is not online!");
         } else {
             Player target = Bukkit.getPlayer(args[0]);
             p.sendMessage(PlayerIPCheck.prefix + ColorUtil.LIGHT_GREEN + target.getName() + "'s IP is: " + ColorUtil.ORANGE + target.getAddress());
             p.sendMessage(PlayerIPCheck.prefix + ColorUtil.LIGHT_GREEN + "Online players with this IP adress: ");
             for (Player online : Bukkit.getOnlinePlayers()) {
-                p.sendMessage(PlayerIPCheck.prefix + ColorUtil.ORANGE + online.getName());
+                if (online.getAddress().equals(target.getAddress())) {
+                    p.sendMessage(PlayerIPCheck.prefix + ColorUtil.ORANGE + online.getName());
+                }
             }
-        }
 
 
+                }
         return false;
     }
 }
