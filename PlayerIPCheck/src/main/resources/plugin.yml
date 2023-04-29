@@ -1,0 +1,14 @@
+name: PlayerIPCheck
+version: 1.0.3-SNAPSHOT
+author: SM45654
+main: at.sm45654.ipcheck.PlayerIPCheck
+api-version: 1.19
+
+commands:
+  playeripcheck:
+    aliases:
+      - ipcheck
+
+permissions:
+  ipcheck.admin:
+    default: op
